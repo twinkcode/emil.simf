@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="card" style="width: 27rem;">
+        <div class="card-body">
+            <h5 class="card-title">Расчет стоимости продукта</h5>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="text-center p-3">
+                <button type="submit" class="btn btn-primary">Рассчитать цену</button>
+            </div>
+            {{ form_end(form) }}
+            {% if price %}
+                <div class="text-center">
+                    Стоимость продукта: <b class="text-primary">{{ selectedProduct }}</b>, <br>
+                    в регионе <b class="text-primary">{{ country }}</b><br>
+                    <b class="display-2 text-danger">{{ price }}</b> &euro;
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{# {% block body %} #}
+{#    <div class="card" style="width: 27rem;"> #}
+{#        <div class="card-body"> #}
+{#            <h5 class="card-title">Расчет стоимости продукта</h5> #}
+{#            <form action="{{ path('calculate_price') }}" method="post"> #}
+{#                <div class="form-group  mt-3"> #}
+{#                    <label for="product" class="h6 text-secondary">Выберите продукт:</label> #}
+{#                    <select name="product" id="product" class="form-select"> #}
+{#                        {% for product in products %} #}
+{#                            <option value="{{ product.id }}">{{ product.name }}</option> #}
+{#                        {% endfor %} #}
+{#                    </select> #}
+{#                </div> #}
+{#                <div class="form-group mt-3" #}
+{#                     data-bs-toggle="tooltip" #}
+{#                     data-bs-placement="top" #}
+{#                     data-bs-title="Tooltip on top" #}
+{#                > #}
+{#                    <label for="tax_number" class="h6 text-secondary">Tax номер:</label> #}
+{#                    <input type="text" name="tax_number" id="tax_number" class="form-control" #}
+{#                           pattern="(DE|IT|GR)\d{9,13}" required> #}
+{#                </div> #}
+{#                <div class="text-center p-3"> #}
+{#                    <button type="submit" class="btn btn-primary">Рассчитать цену</button> #}
+{#                </div> #}
+{#            </form> #}
+{#            {% if price %} #}
+{#                <div class="text-center"> #}
+{#                    Стоимость продукта: <b class="text-primary">{{ selectedProduct }}</b>, <br> #}
+{#                    в регионе <b class="text-primary">{{ country }}</b><br> #}
+{#                    <b class="display-2 text-danger">{{ price }}</b> &euro; #}
+{#                </div> #}
+{#            {% endif %} #}
+{#        </div> #}
+{#    </div> #}
+
+{# {% endblock %} #}
+
